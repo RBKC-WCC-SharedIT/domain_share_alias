@@ -1,0 +1,6 @@
+name = Domain Share Alias
+description = Allows the same alias to be used on multiple sites
+core = 7.x
+
+dependencies[] = domain
+
