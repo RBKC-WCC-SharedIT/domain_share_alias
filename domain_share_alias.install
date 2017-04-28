@@ -1,0 +1,8 @@
+<?php
+
+/**
+  * Implements hook_enable().
+  */
+function domain_share_alias_enable() {
+  domain_bootstrap_register();
+}

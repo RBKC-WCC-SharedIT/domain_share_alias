@@ -5,13 +5,13 @@
  */
 function domain_share_alias_domain_bootstrap_full($domain) {
   global $databases;
-  
+
   // Define the prefix
   $prefix = 'domain_' . $domain['domain_id'] . '_';
-  
+
   // Define tables to (copy and) load dynamically, modify at your ease
   $tables = array('url_alias');
-  
+
   foreach ($tables as $table) {
     $new_table = $prefix . $table;
     // If the table for the domain does not exists, duplicate the normal one
@@ -23,15 +23,8 @@ function domain_share_alias_domain_bootstrap_full($domain) {
     }
     $databases['default']['default']['prefix'][$table] = $prefix;
   }
-  
+
   // This resets our current database connection with prefixes
   Database::closeConnection();
   Database::parseConnectionInfo();
-}
-
-/**
- * Implements hook_enable().
- */
-function domain_share_alias_enable() {
-  domain_bootstrap_register();
 }
